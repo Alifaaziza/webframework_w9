@@ -9,15 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+public function up()
+{
 {
     Schema::create('pages', function (Blueprint $table) {
         $table->id();
-        $table->string('slug')->unique();
         $table->string('title');
-        $table->longText('content');
+        $table->text('content');
+        $table->softDeletes(); // WAJIB
         $table->timestamps();
     });
+}
+
 }
 
 public function down()

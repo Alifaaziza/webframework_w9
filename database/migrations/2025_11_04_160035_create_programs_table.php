@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('programs', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->text('description');
-        $table->string('image')->nullable();
-        $table->timestamps();
-    });
+  Schema::create('programs', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->text('description');
+    $table->timestamps();
+    $table->softDeletes(); // <--- ini
+});
+
 }
 
 public function down()

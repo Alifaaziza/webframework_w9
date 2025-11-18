@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up()
 {
+{
     Schema::create('teams', function (Blueprint $table) {
         $table->id();
         $table->string('name');
-        $table->string('role');
-        $table->string('photo')->nullable();
-        $table->text('description')->nullable();
+        $table->string('position');
+        $table->softDeletes(); // WAJIB
         $table->timestamps();
     });
+}
+
 }
 
 public function down()
